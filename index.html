@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A very simple booking system for a meeting room</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/custom/styles.css" rel="stylesheet" />
+    <link href="./assets/date-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <!--if your brower is IE9-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script src="./assets/jquery-1.11.3.min.js"></script>
+
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/date-picker/js/moment-with-locales.js"></script>
+    <script src="./assets/date-picker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="./assets/validation/jquery.validate.min.js"></script>
+    <script src="./assets/custom/js/booking.js?version=1.0"></script>
+    <script src="./assets/validation/additional-methods.min.js"></script>
+
+
+</head>
+<body>
+<main class="container" >
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-md-offset-3 col-xs-12 text-center">
+            <h1 class="center-block mainheading">a simple booking form</h1>
+            <div class="mainform custom-shadow-border center-block">
+                <form id="booking" class="form-horizontal" method="post" action="control.php">
+                    <div class="form-group">
+                        <label for="username" class="control-label col-xs-2">user:</label>
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="User" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="room" class="control-label col-xs-2">room:</label>
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" id="room" name="room" room-code="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="datetimepicker" class="control-label col-xs-2">
+                            <a href="#" data-toggle="tooltip" title="Booking date">date/time:</a>
+                        </label>
+                        <div class="col-xs-6" >
+                        <div class=' input-group date' id='datetimepicker'>
+                            <input type='text' class="form-control" id="datetimepickerinput" name="datetimepickerinput" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="">
+                        <label for="lengthtime" class="control-label col-xs-2"><a href="#" data-toggle="tooltip" title="Booking length in minutes">length:</a></label>
+                        <div class="col-xs-4" >
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="lengthtime" step="15" min="15" name="lengthtime" />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-4">
+                            <button type="submit" class="btn btn-primary" name="book" value="Book" id="book">Book!</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="alert"></div>
+            </div>
+        </div>
+    </div>
+
+</main>
+    <script type="text/javascript">
+        /*$.validator.setDefaults( {
+            submitHandler: function () {
+                alert( "submitted!" );
+            }
+        } );*/
+
+        $(document).ready(function () {
+
+            $('#booking').submit(function (e) {
+            });
+
+
+            $('#room').productSuggestion();
+        })
+    </script>
+</body>
+</html>
